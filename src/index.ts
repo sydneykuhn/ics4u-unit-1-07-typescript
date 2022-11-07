@@ -7,25 +7,24 @@
  */
 
 // Imports
-import { writeFileSync } from 'fs'
-import { readFileSync } from 'fs'
+import { writeFileSync, readFileSync } from 'fs'
 
+// Setup the Bell Curve and Standard Deviation
 function generateGaussian(mean: number, std: number) {
-  // Setup The Bell Curve
   // https://discourse.psychopy.org/t/javascript-gaussian-function/17724/2
-  let _2PI = Math.PI * 2
-  let u1 = Math.random()
-  let u2 = Math.random()
+  const _2PI = Math.PI * 2
+  const u1 = Math.random()
+  const u2 = Math.random()
 
-  let z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(_2PI * u2)
+  const z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(_2PI * u2)
 
   return z0 * std + mean
 }
 
+// Creates a Table Using Arrays
 function makeArray(d1: number, d2: number) {
-  // Create A Table Using Arrays
   // https://stackoverflow.com/questions/13808325/creating-a-2d-array-with-specific-length-and-width
-  let arr = []
+  const arr = []
   for (let i = 0; i < d2; i++) {
     arr.push(new Array(d1))
   }
