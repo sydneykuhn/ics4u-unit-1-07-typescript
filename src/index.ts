@@ -35,7 +35,10 @@ function makeArray(d1: number, d2: number) {
 // Function That Generates Marks
 function markGenerator(assignmentsArray: string[], studentsArray: string[]) {
   // Defining array
-  const arr: string[][] = makeArray(studentsArray.length + 1, arrayOfAssignments.length)
+  const arr: string[][] = makeArray(
+    studentsArray.length + 1,
+    arrayOfAssignments.length
+  )
 
   // Adding student names
   arr[0] = arrayOfStudents
@@ -58,9 +61,15 @@ const studentsFile = readFileSync('./files/students.txt', 'utf-8')
 const assignmentsFile = readFileSync('./files/assignments.txt', 'utf-8')
 
 // Convert files to arr
-const arrayOfStudents = studentsFile.toString().replace(/\r\n/g, '\n').split('\n')
+const arrayOfStudents = studentsFile
+  .toString()
+  .replace(/\r\n/g, '\n')
+  .split('\n')
 arrayOfStudents.pop()
-const arrayOfAssignments = assignmentsFile.toString().replace(/\r\n/g, '\n').split('\n')
+const arrayOfAssignments = assignmentsFile
+  .toString()
+  .replace(/\r\n/g, '\n')
+  .split('\n')
 arrayOfAssignments.pop()
 
 // Process
